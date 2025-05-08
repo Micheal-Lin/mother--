@@ -1,0 +1,170 @@
+/*flex-coatiner-a*/
+*,*:before,*:after{
+    box-sizing: border-box;
+}
+
+/* 電腦版樣式*/
+.package{
+    margin: auto;
+    position: relative;
+    height: 610px;
+    width: 100%;
+    overflow: hidden;
+}
+  
+.package::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('img/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* 調整淡化程度 */
+    z-index: -1; /* 放到文字後面 */
+    overflow: hidden;       /* 隱藏超出部分 */
+    /* border: 1px solid #ccc; 可選，方便看範圍 */
+}
+.package h1{
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: center;     /* 垂直置中 */
+    font-family:  "Courier New", Courier, monospace;
+    font-size: 50px;
+    color: #FF69B4;
+    font-weight: bolder;
+}
+
+.package p {
+    display: inline-block;
+    white-space: nowrap;    /* 文字不換行 */
+    padding-left: 100%;     /* 文字起點在容器右側外 */
+    animation: marquee 15s linear infinite;
+    margin: 0;
+    font-size: 20px;
+    color: #FF69B4;
+    font-weight: bolder;
+}
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+}
+
+  .media-container {
+    display: flex;
+    justify-content: center; /* 水平置中整個容器 */
+    align-items: center;     /* 垂直置中 */
+    gap: 20px;               /* 影片和圖片間距 */
+    margin-top: 40px;        /* 上方間距 */
+  }
+  
+  /* 圖片設定 */
+  .image-wrapper img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+  }
+  
+  /* 影片圓形區塊 */
+  .circle-frame {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.8) 40%,
+      rgba(255, 255, 255, 0.1) 70%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+  
+  /* 影片本體 */
+  .circle-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* 播放按鈕 */
+  #playBtn {
+    position: absolute;
+    bottom: 50px;
+    left: 25%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease;
+  }
+  
+  #playBtn:hover {
+    background-color: rgba(255, 105, 180, 0.9);
+    color: white;
+  }  
+
+  .image-wrapper {
+    width: 300px; /* 自行調整寬度 */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .flower {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+/*手機板*/
+@media (max-width: 600px) {   
+    .package {
+      height: auto;           /* 高度改成自動，避免手機螢幕過高空白 */
+      padding: 20px 10px;     /* 增加左右內邊距，避免內容貼邊 */
+    }
+  
+    .package h1 {
+      font-size: 32px;        /* 標題字體縮小，適合小螢幕 */
+      padding-top: 10px;      /* 上方間距縮小 */
+    }
+  
+    .package p {
+      font-size: 14px;        /* 文字縮小，方便閱讀 */
+      padding-left: 0;        /* 取消跑馬燈起點縮排 */
+      white-space: normal;    /* 允許換行，避免文字超出螢幕 */
+      animation: none;        /* 停止跑馬燈動畫，提升手機體驗 */
+    }
+
+    .media-container {
+        flex-direction: column; /* 手機版改成上下排列 */
+        gap: 20px;
+      }
+      .circle-frame {
+        width: 90vw;
+        height: 90vw;
+        margin: 0 auto;
+      }
+      .image-wrapper img {
+        max-width: 90vw;
+      }
+      #playBtn {
+        bottom: 40px;
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+      
+  }

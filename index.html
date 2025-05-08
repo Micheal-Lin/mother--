@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="all.css">
+</head>
+
+<body>
+    <div class="package">
+        <h1>HAPPY MOTHER'S DAY</h1>
+        <p>媽媽，祝妳母親節快樂、長命百歲、長長久久。</p>
+        
+        <div class="media-container">
+            <div class="image-wrapper">
+                <img src="img/康乃馨.png" alt="康乃馨" class="flower">
+              </div>
+
+            <div class="circle-frame">
+                <video id="myVideo" loop playsinline>
+                    <source src="video/蔡豫祁.mp4" type="video/mp4">
+                </video>
+                <button id="playBtn">||</button>
+                <!-- 音量控制 -->
+                <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1" style="position:absolute; bottom:60px; left:50%; transform:translateX(-50%); width:150px;">
+                <!-- 播放進度控制 -->
+                <input type="range" id="seekBar" min="0" max="100" value="0" style="position:absolute; bottom:30px; left:50%; transform:translateX(-50%); width:300px;">
+            </div>
+
+            <div class="image-wrapper">
+                <img src="img/康乃馨.png" alt="">
+            </div>
+        </div>
+
+        <!-- 背景音樂 -->
+        <audio id="myAudio" src="audio/媽媽的手.mp3" loop></audio>
+    </div>
+    <script src="all.js"></script>
+</body>
+</html>
