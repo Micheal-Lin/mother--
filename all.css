@@ -144,9 +144,9 @@
   
     .package p {
       font-size: 14px;        /* 文字縮小，方便閱讀 */
-      padding-left: 0;        /* 取消跑馬燈起點縮排 */
-      white-space: normal;    /* 允許換行，避免文字超出螢幕 */
-      animation: none;        /* 停止跑馬燈動畫，提升手機體驗 */
+      padding-left: 100%;        /* 保留跑馬燈起點縮排 */
+      white-space: nowrap;    /* 不換行，跑馬燈必須 */
+      animation: marquee 15s linear infinite; /* 保留動畫 */
     }
 
     .media-container {
