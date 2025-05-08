@@ -45,7 +45,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 const myAudio = document.getElementById('myAudio');
-myAudio.volume = 0.2;  // 將音量調到 20%
+myAudio.volume = 0.1;  // 將音量調到 10%
 
 function tryPlayAudio() {
   myAudio.play().catch(() => {
